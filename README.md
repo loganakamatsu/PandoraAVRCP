@@ -27,13 +27,16 @@ apktool breaks on this app's resources but we don't need to modify those, so use
 
 			apktool d -r pandora.apk
 Apply the patch:
-cd to the decompiled directory, then
+cd to the decompiled directory (will depend on what your file was named)
+
+			cd Pandora
+then
 	
 			git apply 0001-add-A2DP-AVRCP-Meta-data.patch
 			
 or without git
 		
-			patch -p1 0001-add-A2DP-AVRCP-Meta-data.patch
+			patch -p1 < 0001-add-A2DP-AVRCP-Meta-data.patch
 
 Recompile the app
 

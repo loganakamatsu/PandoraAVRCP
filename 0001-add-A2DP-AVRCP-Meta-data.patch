@@ -1,17 +1,8 @@
-From b8555f476d9acbdebcdaa9be9862245ac6920ff1 Mon Sep 17 00:00:00 2001
-From: L.Akamatsu <xxxx.xxxxxx>
-Date: Thu, 27 Sep 2012 17:04:16 -0400
-Subject: [PATCH] add A2DP/AVRCP Meta-data
-
----
- .../com/pandora/android/activity/NowPlaying.smali  | 36 +++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
-
 diff --git a/smali/com/pandora/android/activity/NowPlaying.smali b/smali/com/pandora/android/activity/NowPlaying.smali
-index 5b1cc45..806c10c 100644
+index 4c6d2c3..37a7a96 100644
 --- a/smali/com/pandora/android/activity/NowPlaying.smali
 +++ b/smali/com/pandora/android/activity/NowPlaying.smali
-@@ -2177,7 +2177,7 @@
+@@ -2685,7 +2685,7 @@
  .end method
  
  .method private setTrackLabels()V
@@ -19,10 +10,10 @@ index 5b1cc45..806c10c 100644
 +    .locals 7
  
      .prologue
-     .line 1257
-@@ -2191,6 +2191,19 @@
+     .line 1380
+@@ -2699,6 +2699,19 @@
  
-     .line 1260
+     .line 1383
      :cond_0
 +
 +    new-instance v4, Landroid/content/Intent;
@@ -40,7 +31,7 @@ index 5b1cc45..806c10c 100644
      iget-object v0, p0, Lcom/pandora/android/activity/NowPlaying;->_songTitleTextView:Landroid/widget/TextView;
  
      iget-object v1, p0, Lcom/pandora/android/activity/NowPlaying;->_trackData:Lcom/pandora/android/data/TrackData;
-@@ -2205,6 +2218,10 @@
+@@ -2713,6 +2726,10 @@
  
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
  
@@ -48,10 +39,10 @@ index 5b1cc45..806c10c 100644
 +
 +    invoke-virtual {v4, v5, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 +
-     .line 1261
+     .line 1384
      iget-object v0, p0, Lcom/pandora/android/activity/NowPlaying;->_artistTextView:Landroid/widget/TextView;
  
-@@ -2220,6 +2237,10 @@
+@@ -2728,6 +2745,10 @@
  
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
  
@@ -59,10 +50,10 @@ index 5b1cc45..806c10c 100644
 +
 +    invoke-virtual {v4, v5, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 +
-     .line 1262
+     .line 1385
      iget-object v0, p0, Lcom/pandora/android/activity/NowPlaying;->_albumTextView:Landroid/widget/TextView;
  
-@@ -2235,6 +2256,18 @@
+@@ -2743,6 +2764,18 @@
  
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
  
@@ -76,19 +67,8 @@ index 5b1cc45..806c10c 100644
 +
 +    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 +
-+		invoke-virtual {p0, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
++    invoke-virtual {p0, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 +
-     .line 1263
+     .line 1386
      iget-object v0, p0, Lcom/pandora/android/activity/NowPlaying;->_trackData:Lcom/pandora/android/data/TrackData;
  
-@@ -2251,6 +2284,7 @@
-     invoke-static {v0, v1, v2, v3}, Lcom/pandora/android/activity/NowPlayingHelper;->toggleThumbs(ILandroid/widget/ImageButton;Landroid/widget/ImageButton;Lcom/pandora/android/data/TrackData;)V
- 
-     goto :goto_0
-+
- .end method
- 
- .method private setUIEnabling(Z)V
--- 
-1.7.11
-
